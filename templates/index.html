@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Covid Today</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">😷 Covid Today</h1>
+
+        <div class="world">
+            <div>
+                <h4>Confirmed</h4>
+                <p id="confirmed">{{ confirmed }}</p>
+            </div>
+            <div>
+                <h4>Active</h4>
+                <p id="active">{{ active }}</p>
+            </div>
+            <div>
+                <h4>Deaths</h4>
+                <p id="deaths">{{ deaths }}</p>
+            </div>
+            <div>
+                <h4>Recoverd</h4>
+                <p id="recovered">{{ recovered }}</p>
+            </div>
+        </div>
+
+        <div class="dash">
+            <div class="top">
+                <h4>Today's Top 10 Confirmed cases</h4>
+                <table>
+                    <tr>
+                        <th>Country</th>
+                        <th>Confirmed</th>
+                    </tr>
+                    {{ top_tbody | safe }}
+                </table>
+            </div>
+            <div class="map">
+              {{ bubble_map | safe }}
+            </div>
+        </div>
+
+        <footer>
+            <small>Created by <a target="_blank" rel="noopener noreferrer" href="https://hongmei-codes.github.io/">hongmei</a></small>
+            <br/>
+            <small>View code <a target="_blank" rel="noopener noreferrer" href="https://github.com/hongmei-codes/covid_today">here</a></small>
+            <br/>
+            <small>Covid case data of <strong>{{ utc_date }}</strong> from <a target="_blank" rel="noopener noreferrer" href="{{ data_url }}">JHU</a></small>
+        </footer>
+    </div>
+</body>
+</html>
